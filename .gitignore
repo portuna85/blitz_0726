@@ -2,6 +2,7 @@ HELP.md
 .gradle
 build/
 .idea/
+.note/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
