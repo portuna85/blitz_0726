@@ -38,9 +38,9 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
     bucket: blitz-springboot-build
-    key: blitz-springboot-webservice
+    key: blitz.zip
     bundle_type: zip
-    application: blitz-springboot-webservice.zip
+    application: blitz-springboot-webservice
     deployment_group: blitz-springboot-webservice-group
     region: ap-northeast-2
     # wait-until-deployed: true
