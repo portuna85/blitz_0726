@@ -40,7 +40,7 @@ deploy:
       key: blitz.zip
       bundle_type: zip
       application: blitz
-      deployment_group: blitz-group
+      deployment_group: blitz-springboot-webservice
       region: ap-northeast-2
       wait-until-deployed: true
 
