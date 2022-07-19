@@ -17,7 +17,6 @@ cache:
 
 script: "./gradlew clean build"
 
-
 before_deploy:
   - zip -r blitz *
   - mkdir -p deploy
@@ -35,6 +34,17 @@ deploy:
     # wait-until-deployed: true
     edge : true
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: blitz-springboot-build
+    key: blitz.zip
+    bundle_type: zip
+    application: blitz-springboot-webservice
+    deployment_group: blitz-springboot-webservice-group
+    region: ap-northeast-2
+    # wait-until-deployed: true
+    edge: true
 
 
 # CI 실행 완료 시 메일로 알람
