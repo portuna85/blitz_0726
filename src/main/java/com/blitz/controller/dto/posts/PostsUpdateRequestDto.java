@@ -1,4 +1,4 @@
-package com.blitz.controller.dto;
+package com.blitz.controller.dto.posts;
 
 import lombok.Builder;
 import lombok.Getter;

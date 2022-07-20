@@ -1,0 +1,30 @@
+{{>layout/header}}
+
+<h1>회원가입</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="account">ID</label>
+                <input type="text" class="form-control" id="account" placeholder="ID를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="password"> 비밀번호 </label>
+                <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="name"> 이름 </label>
+                <input type="text" class="form-control" id="name" placeholder="닉네임을 입력하세요"></input>
+            </div>
+            <div class="form-group">
+                <label for="nickName"> 닉네임 </label>
+                <input type="text" class="form-control" id="nickName" placeholder="닉네임을 입력하세요"></input>
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-save">회원 가입</button>
+    </div>
+</div>
+
+{{>layout/footer}}

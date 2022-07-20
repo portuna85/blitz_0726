@@ -1,8 +1,6 @@
 package com.blitz.controller;
 
-import com.blitz.config.auth.LoginUser;
-import com.blitz.config.auth.dto.SessionUser;
-import com.blitz.controller.dto.PostsResponseDto;
+import com.blitz.controller.dto.posts.PostsResponseDto;
 import com.blitz.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,23 +17,24 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
-        if (user != null) {
-            model.addAttribute("userName", user.getName());
-        }
+    public String index(Model model) {
         return "index";
     }
 
     @GetMapping("/posts/save")
     public String postsSave() {
-        return "posts-save";
+        return "posts/posts-save";
     }
 
     @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model) {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
-        return "posts-update";
+        return "posts/posts-update";
+    }
+
+    @GetMapping("/member/save")
+    public String memberSave(){
+        return "member/member-save";
     }
 }

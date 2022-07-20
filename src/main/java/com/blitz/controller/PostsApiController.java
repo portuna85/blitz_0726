@@ -1,9 +1,9 @@
 package com.blitz.controller;
 
-import com.blitz.controller.dto.PostsListResponseDto;
-import com.blitz.controller.dto.PostsResponseDto;
-import com.blitz.controller.dto.PostsSaveRequestDto;
-import com.blitz.controller.dto.PostsUpdateRequestDto;
+import com.blitz.controller.dto.posts.PostsListResponseDto;
+import com.blitz.controller.dto.posts.PostsResponseDto;
+import com.blitz.controller.dto.posts.PostsSaveRequestDto;
+import com.blitz.controller.dto.posts.PostsUpdateRequestDto;
 import com.blitz.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -37,10 +37,9 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
+
     @GetMapping("/api/v1/posts/list")
     public List<PostsListResponseDto> findAll() {
         return postsService.findAllDesc();
     }
-
-
 }

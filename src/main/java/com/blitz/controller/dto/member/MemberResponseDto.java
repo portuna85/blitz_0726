@@ -1,4 +1,4 @@
-package com.blitz.controller.dto;
+package com.blitz.controller.dto.member;
 
 import com.blitz.domain.member.Address;
 import com.blitz.domain.member.Member;
@@ -13,11 +13,13 @@ public class MemberResponseDto {
     private String password;
     private String name;
     private Address address;
+    private String nickName;
 
     public MemberResponseDto(Member entity) {
         this.account = entity.getAccount();
         this.password = entity.getPassword();
         this.name = entity.getName();
         this.address = entity.getAddress();
+        this.nickName = entity.getNickName();
     }
 }

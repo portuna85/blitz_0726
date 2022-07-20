@@ -1,16 +1,15 @@
 package com.blitz.domain.posts;
 
 import com.blitz.domain.BaseTimeEntity;
+import com.blitz.domain.member.Member;
 import lombok.Builder;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -21,8 +20,15 @@ public class Posts extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "member_id", length = 500, nullable = false)
+    @Column(length = 500, nullable = false)
     private String title;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @OneToMany(mappedBy = "posts", fetch = FetchType.EAGER)
+    private List<Board> boardList = new ArrayList<>();
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;

@@ -1,9 +1,9 @@
 package com.blitz.service;
 
-import com.blitz.controller.dto.PostsListResponseDto;
-import com.blitz.controller.dto.PostsResponseDto;
-import com.blitz.controller.dto.PostsSaveRequestDto;
-import com.blitz.controller.dto.PostsUpdateRequestDto;
+import com.blitz.controller.dto.posts.PostsListResponseDto;
+import com.blitz.controller.dto.posts.PostsResponseDto;
+import com.blitz.controller.dto.posts.PostsSaveRequestDto;
+import com.blitz.controller.dto.posts.PostsUpdateRequestDto;
 import com.blitz.domain.posts.Posts;
 import com.blitz.repository.PostsRepository;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +38,6 @@ public class PostsService {
     public void delete (Long id) {
         Posts posts = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
-
         postsRepository.delete(posts);
     }
 

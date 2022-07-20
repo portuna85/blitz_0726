@@ -1,4 +1,4 @@
-package com.blitz.controller.dto;
+package com.blitz.controller.dto.member;
 
 import com.blitz.domain.member.Address;
 import com.blitz.domain.member.Member;
@@ -14,13 +14,15 @@ public class MemberJoinRequestDto {
     private String password;
     private String name;
     private Address address;
+    private String nickName;
 
     @Builder
-    public MemberJoinRequestDto(String account, String password, String name, Address address) {
+    public MemberJoinRequestDto(String account, String password, String name, Address address, String nickName) {
         this.account = account;
         this.password = password;
         this.name = name;
         this.address = address;
+        this.nickName = nickName;
     }
 
     public Member toEntity() {
@@ -29,6 +31,7 @@ public class MemberJoinRequestDto {
                 .password(password)
                 .name(name)
                 .address(address)
+                .nickName(nickName)
                 .build();
     }
 }

@@ -1,14 +1,14 @@
 package com.blitz.repository;
 
 import com.blitz.domain.member.Member;
-import com.blitz.domain.posts.Posts;
+import com.blitz.domain.posts.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface BoardRepository extends JpaRepository<Board, Long> {
 
-    @Query("SELECT m FROM Member m ORDER BY m.id DESC")
-    List<Member> findAllDesc();
+    @Query("SELECT b FROM Board b ORDER BY b.id DESC")
+    List<Board> findAllDesc();
 }
