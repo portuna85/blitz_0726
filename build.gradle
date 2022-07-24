@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.1'
+    id 'org.springframework.boot' version '2.6.5'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
 }
@@ -23,9 +23,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.projectlombok:lombok'
     // implementation 'mysql:mysql-connector-java'
+    // implementation 'org.springframework.boot:spring-boot-starter-security'
 
-    runtimeOnly 'com.h2database:h2:1.4.200'
+    runtimeOnly 'com.h2database:h2:1.4.199'
 
     annotationProcessor 'org.projectlombok:lombok'
 
