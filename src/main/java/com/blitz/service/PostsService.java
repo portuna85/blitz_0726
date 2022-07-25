@@ -52,5 +52,11 @@ public class PostsService {
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    /* Views Counting */
+    @Transactional
+    public int updateView(Long id) {
+        return postsRepository.updateView(id);
+    }
 }
 

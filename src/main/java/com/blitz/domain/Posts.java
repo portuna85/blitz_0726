@@ -17,6 +17,7 @@ public class Posts extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
     private Long id;
 
     @Column(length = 500, nullable = false)
@@ -26,6 +27,9 @@ public class Posts extends BaseTimeEntity {
     private String content;
 
     private String author;
+
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private int viewCount;
 
     @Builder
     public Posts(String title, String content, String author) {
@@ -37,5 +41,9 @@ public class Posts extends BaseTimeEntity {
     public void update(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public void increaseViewCount() {
+        this.viewCount++;
     }
 }

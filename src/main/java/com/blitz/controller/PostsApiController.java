@@ -1,11 +1,14 @@
 package com.blitz.controller;
 
+import com.blitz.controller.dto.PostsListResponseDto;
 import com.blitz.controller.dto.PostsResponseDto;
 import com.blitz.controller.dto.PostsSaveRequestDto;
 import com.blitz.controller.dto.PostsUpdateRequestDto;
 import com.blitz.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -23,8 +26,19 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+        postsService.delete(id);
+        return id;
+    }
+
     @GetMapping("/api/v1/posts/{id}")
     public PostsResponseDto findById(@PathVariable Long id) {
         return postsService.findById(id);
+    }
+
+    @GetMapping("/api/v1/posts/list")
+    public List<PostsListResponseDto> findAll() {
+        return postsService.findAllDesc();
     }
 }
